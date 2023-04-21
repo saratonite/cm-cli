@@ -8,12 +8,3 @@ export const db: Knex = knex({
   },
   useNullAsDefault: true,
 });
-
-export async function initDb() {
-  await db.schema.createTable("contacts", (table) => {
-    table.increments("id");
-    table.string("name");
-    table.string("email").nullable();
-    table.string("phone").nullable();
-  });
-}

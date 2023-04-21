@@ -1,6 +1,5 @@
 import { program } from "commander";
-import { initDb } from "../../lib/db.js";
-import { t, createSpinner } from "../../utils/ui.js";
+import { runMigration } from "../../utils/db-migration.js";
 export const initCmd = program
   .command("init")
   .description("Initialize and setup app")
@@ -11,11 +10,7 @@ export const initCmd = program
   });
 
 async function appInit() {
-  const spinner = createSpinner(`Initializing database...`);
   try {
-    await initDb();
-    spinner.succeed(`App initialized`);
-  } catch (e) {
-    spinner.fail(`Error initializing app `);
-  }
+    await runMigration();
+  } catch (e) {}
 }
