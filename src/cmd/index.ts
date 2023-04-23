@@ -1,3 +1,2 @@
-import { rootCommand } from "./root-cmd.js";
-
-rootCommand.parse();
+import { RootCmd } from "./root-cmd.js";
+RootCmd.parse();

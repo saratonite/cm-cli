@@ -4,12 +4,14 @@
   "description": "Quiz app cli",
   "type": "module",
   "scripts": {
-    "dev": "ts-node --esm src/index.ts",
+    "dev": "ts-node --esm src/cmd/",
     "build": "tsc",
     "start": "node ./dist"
   },
   "keywords": [
-    "Quiz",
+    "Conatct",
+    "Manager",
+    "CLI",
     "app"
   ],
   "author": "sarath.tk@gmx.com",
