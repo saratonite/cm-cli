@@ -50,3 +50,7 @@ export async function _createTable() {
     table.string("phone").nullable();
   });
 }
+
+export async function tableExists() {
+  await db.schema.hasTable(table);
+}

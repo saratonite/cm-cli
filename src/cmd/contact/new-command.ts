@@ -29,26 +29,12 @@ export const newCmd = program
       },
     ];
 
-    let addMore: boolean = true;
+    let { name, email, phone, save } = await inquirer.prompt(questions);
 
-    while (addMore) {
-      let { name, email, phone, save } = await inquirer.prompt(questions);
-
-      if (save) {
-        const saveSpinner = createSpinner("Saving contact...");
-        await Contact.create({ name, email, phone });
-        saveSpinner.succeed("Contact saved");
-      }
-
-      const { addNew } = await inquirer.prompt([
-        {
-          name: "addNew",
-          message: "Add new contact",
-          type: "confirm",
-        },
-      ]);
-
-      addMore = addNew;
+    if (save) {
+      const saveSpinner = createSpinner("Saving contact...");
+      await Contact.create({ name, email, phone });
+      saveSpinner.succeed("Contact saved");
     }
 
     process.exit(0);
